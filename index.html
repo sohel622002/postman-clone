@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Latest compiled and minified CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js" type="module"></script>
+    <title>Postmane Clone</title>
+  </head>
+  <body>
+    <div class="p-4 mx-auto border-2" style="max-width: 800px">
+      <h2>Test Your APIS</h2>
+      <form data-form>
+        <div class="input-group">
+          <select
+            data-method
+            name="method"
+            id=""
+            class="form-select flex-grow-0 w-auto"
+          >
+            <option value="GET" selected>GET</option>
+            <option value="POST">POST</option>
+            <option value="PUT">PUT</option>
+            <option value="PATCH">PATCH</option>
+            <option value="DELETE">DELETE</option>
+          </select>
+          <input
+            required
+            class="form-control"
+            type="url"
+            placeholder="https://example.com"
+            data-url
+            value="https://jsonplaceholder.typicode.com/todos/1"
+          />
+          <button class="btn btn-primary" type="submit">SEND</button>
+        </div>
+
+        <ul class="nav nav-tabs mt-3" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active"
+              id="query-params-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#query-params"
+              type="button"
+              role="tab"
+              aria-controls="query-params"
+              aria-selected="true"
+            >
+              Query Params
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="request-headers-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#request-header"
+              type="button"
+              role="tab"
+              aria-controls="request-header"
+              aria-selected="true"
+            >
+              Headers
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="json-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#json"
+              type="button"
+              role="tab"
+              aria-controls="json"
+              aria-selected="true"
+            >
+              JSON
+            </button>
+          </li>
+        </ul>
+
+        <div class="tab-content p-3 border-top-0 border">
+          <div
+            class="tab-pane fade show active"
+            id="query-params"
+            role="tabpanel"
+          >
+            <div data-query-params></div>
+
+            <button
+              data-add-query-param-btn
+              class="mt-2 btn btn-outline-success"
+              type="button"
+            >
+              Add
+            </button>
+          </div>
+
+          <div class="tab-pane fade" id="request-header" role="tabpanel">
+            <div data-request-header></div>
+
+            <button
+              data-add-request-heade-btn
+              class="mt-2 btn btn-outline-success"
+              type="button"
+            >
+              Add
+            </button>
+          </div>
+
+          <div class="tab-pane fade" id="json" role="tabpanel">
+            <div
+              data-json-request-body
+              class="overflow-auto"
+              style="max-height: 400px"
+            ></div>
+          </div>
+        </div>
+      </form>
+
+      <div class="mt-5 d-none" data-response-section>
+        <h3>Response</h3>
+        <div class="d-flex my-2">
+          <div class="me-3">Status: <span data-status>200</span></div>
+          <div class="me-3">Time: <span data-time></span>ms</div>
+          <div class="me-3">Size: <span data-size></span></div>
+        </div>
+        <ul class="nav nav-tabs mt-3" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active"
+              id="body-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#body"
+              type="button"
+              role="tab"
+              aria-controls="body"
+              aria-selected="true"
+            >
+              Body
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="response-headers-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#response-header"
+              type="button"
+              role="tab"
+              aria-controls="response-header"
+              aria-selected="true"
+            >
+              Headers
+            </button>
+          </li>
+        </ul>
+        <div class="tab-content p-3 border-top-0 border">
+          <div class="tab-pane fade show active" id="body" role="tabpanel">
+            <div
+              data-json-response-body
+              class="overflow-auto"
+              style="max-height: 400px"
+            ></div>
+          </div>
+
+          <div class="tab-pane fade" id="response-header" role="tabpanel">
+            <div
+              data-response-headers
+              style="
+                display: grid;
+                grid-template-columns: auto 1fr;
+                gap: 0.5rem 2rem;
+              "
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <template data-key-value-template>
+      <div class="input-group my-2" data-key-value-pair>
+        <input type="text" placeholder="Key" data-key class="form-control" />
+        <input
+          type="text"
+          placeholder="Value"
+          data-value
+          class="form-control"
+        />
+        <button class="btn btn-outline-danger" data-remove-btn type="button">
+          Remove
+        </button>
+      </div>
+    </template>
+  </body>
+</html>
