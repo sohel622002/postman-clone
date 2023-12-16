@@ -1,3 +1,3 @@
 # Postman Clone
 
--> Creating postman clone with healp of JavaScript and Bootstrap
+-> Creating postman clone with JavaScript and Bootstrap
